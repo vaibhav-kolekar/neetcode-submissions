@@ -1,0 +1,20 @@
+class Solution {
+    public boolean hasDuplicate(int[] nums) {
+        HashMap<Integer, Integer>mp = new HashMap<>();
+        for(int x : nums){
+            if(mp.containsKey(x)){
+                mp.put(x, mp.get(x) + 1);
+            }else{
+                mp.put(x, 1);
+            }
+        }
+
+        for(int x : mp.keySet()){
+            if(mp.get(x) > 1){
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
